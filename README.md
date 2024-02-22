@@ -1,4 +1,4 @@
-# Query the starknet airdrop amount by contributors to an organizations
+# Query the starknet airdrop amount by contributors to an organization
 
 ## Screenshot
 
@@ -6,7 +6,7 @@
 
 ## Download contributors data
 
-Save contributors data of apache to the apache folder, run the following command
+To save contributors data of apache to the apache folder, run the following command
 
 ```
 ./get_contributors_for_org.sh apache -t TOKEN
@@ -24,8 +24,8 @@ jq -c '.[]' apache/*/contributors.*.json apache/contributors.json
  
 ## Query airdrop amount with duckdb
 
-The file [./airdrop.json](./airdrop.json) contains the data from [https://github.com/starknet-io/provisions-data/tree/main/github](starknet-io/provisions-data),
-which have a list of all airdrop amounts and the github users. We can easily query these data with [https://duckdb.org/](duckdb).
+The file [./airdrop.json](./airdrop.json) contains the data from [starknet-io/provisions-data](https://github.com/starknet-io/provisions-data/tree/23f9b866c127892f59ce1d1bc967d2f5be85b72a/github),
+which has a list of all github users with the airdrop amount. We can easily query these data with [duckdb](https://duckdb.org/).
 Below are some examples.
 
 ### Show who has an airdrop of more than 1000 STRK
