@@ -24,6 +24,16 @@ jq -c '.[]' apache/*/contributors.*.json apache/contributors.json
  
 ## Query airdrop amount with duckdb
 
+The file [./airdrop.json](./airdrop.json) contains the data from [https://github.com/starknet-io/provisions-data/tree/main/github](starknet-io/provisions-data),
+which have a list of all airdrop amounts and the github users. We can easily query these data with [https://duckdb.org/](duckdb).
+Below are some examples.
+
+### Show who has an airdrop of more than 1000 STRK
+
+```
+select amount, identity from "airdrop.json" where amount > 10000 order by amount desc, identity;
+```
+
 ### Show all airdrop amounts along with github id `apache/contributors.json`
 
 ```
