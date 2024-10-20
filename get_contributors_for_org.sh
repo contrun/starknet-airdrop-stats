@@ -87,9 +87,9 @@ if [[ -n "$org" ]]; then
     save_repo_contributors "$r"
   done
 
-  rm "$tmp_file"
+  rm -f "$tmp_file"
   for f in "$org"/*/contributors.*.json; do
-    jq -c '.[]' "$f" >"$tmp_file"
+    jq -c '.[]' "$f" >>"$tmp_file"
   done
   mv "$tmp_file" "$org"/contributors.json
 fi
@@ -97,9 +97,9 @@ fi
 if [[ -n "$repo" ]]; then
   save_repo_contributors "$repo"
 
-  rm "$tmp_file"
-  for f in "$repo"/../*/contributors.*.json; do
-    jq -c '.[]' "$f" >"$tmp_file"
+  rm -f "$tmp_file"
+  for f in "$repo"/contributors.*.json; do
+    jq -c '.[]' "$f" >>"$tmp_file"
   done
-  mv "$tmp_file" "$repo"/../contributors.json
+  mv "$tmp_file" "$repo"/contributors.json
 fi
